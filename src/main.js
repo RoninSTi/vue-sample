@@ -1,8 +1,13 @@
 import Vue from 'vue'
 import App from './App.vue'
+import CenterContainer from './components/lib/center-container'
 
 Vue.config.productionTip = false
 
+Vue.component('center-container', CenterContainer)
+
 new Vue({
-  render: h => h(App)
-}).$mount('#app')
+  el: '#app',
+  template: '<App />',
+  components: { App },
+})
