@@ -1,5 +1,5 @@
 import { AUTH_REQUEST, AUTH_ERROR, AUTH_SUCCESS, AUTH_LOGOUT } from '../actions/auth';
-import apiCall from 'utils.api';
+import apiCall from '../../utils/api';
 
 const state = { 
   token: localStorage.getItem('user-token') || '',
@@ -13,7 +13,7 @@ const getters = {
 }
 
 const actions = {
-  [AUTH_REQUEST]: ({ commit, dispatch }, user) => {
+  [AUTH_REQUEST]: ({ commit }, user) => {
     return new Promise((resolve, reject) => {
       commit(AUTH_REQUEST);
       apiCall({ url: 'auth', data: user, method: 'POST'})
@@ -29,8 +29,8 @@ const actions = {
       });
     });
   },
-  [AUTH_LOGOUT]:({ commit, dispatch }) => {
-    return new Promise((resolve, reject) => {
+  [AUTH_LOGOUT]:({ commit }) => {
+    return new Promise((resolve) => {
       commit(AUTH_LOGOUT);
       localStorage.removeItem('user-token');
       resolve();

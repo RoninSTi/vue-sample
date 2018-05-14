@@ -1,16 +1,21 @@
 <template>
   <div id="app">
     <div class="main-container">
-      <center-container>
-      </center-container>
+      <CenterContainer>
+        <router-view></router-view>
+      </CenterContainer>
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'app'
-}
+  import CenterContainer from './components/lib/center-container.vue';
+  export default {
+    name: 'app',
+    components: {
+      CenterContainer,
+    }
+  }
 </script>
 
 <style>
