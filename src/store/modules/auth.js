@@ -16,11 +16,11 @@ const actions = {
   [AUTH_REQUEST]: ({ commit }, user) => {
     return new Promise((resolve, reject) => {
       commit(AUTH_REQUEST);
-      apiCall({ url: 'auth', data: user, method: 'POST'})
+      apiCall({ url: 'auth', data: user, method: 'POST',})
       .then(resp => {
         localStorage.setItem('user-token', resp.token);
         commit(AUTH_SUCCESS, resp);
-        resolve(resp)
+        resolve(resp);
       })
       .catch(err => {
         commit(AUTH_ERROR);
@@ -40,7 +40,7 @@ const actions = {
 
 const mutations = {
   [AUTH_REQUEST]: (state) => {
-    state.status = 'loading'
+    state.status = 'loading';
   },
   [AUTH_SUCCESS]: (state, resp) => {
     state.status = 'success';
@@ -53,7 +53,7 @@ const mutations = {
   },
   [AUTH_LOGOUT]: (state) => {
     state.token = '';
-  }
+  },
 }
 
 export default {

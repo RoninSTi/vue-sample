@@ -11,5 +11,5 @@ export default new Vuex.Store({
   modules: {
     auth,
   },
-  strict: debug
+  strict: debug,
 });
